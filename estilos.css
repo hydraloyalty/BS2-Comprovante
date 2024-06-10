@@ -210,40 +210,6 @@
 	cursor: pointer; /* Cursor como ponteiro */
 }
 
-.segmented-control {
-    display: flex;
-    overflow: hidden;
-    border-radius: 20px;
-    border: 1px solid #79747E;
-    max-width: 300px; /* Ajuste a largura máxima conforme necessário */
-    height: 40px;
-    align-content: center;
-}
-
-.segmented-control label {
-    display: flex;
-    flex: 1;
-    text-align: center;
-    cursor: pointer;
-    background-color: #fff;
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins';
-    font-weight: 500;
-    color: #1D1B20;
-    align-items: center;
-    justify-content: center;
-}
-
-.segmented-control input[type="radio"] {
-    display: none;
-}
-
-.segmented-control input[type="radio"]:checked + label {
-    background-color: #E8DEF8;
-    color: #1D192B;
-    font-weight: 600;
-}
-
 .config-select {
 	height: 50px;
     
