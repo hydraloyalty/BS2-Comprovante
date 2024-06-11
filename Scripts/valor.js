@@ -20,4 +20,12 @@ function formatValue(value) {
 
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('i-valor').addEventListener('input', calcular);
+
+            document.getElementById('i-valor').addEventListener('keypress', function(event) {
+                const charCode = event.charCode;
+                // Permitir apenas números, vírgula e ponto
+                if (charCode !== 44 && charCode !== 46 && (charCode < 48 || charCode > 57)) {
+                    event.preventDefault();
+                }
+            });
         });
