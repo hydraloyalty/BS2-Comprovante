@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const botaoImprimir = document.getElementById('botao-imprimir');
     const secaoConfig = document.getElementById('config');
+    const documento = document.getElementById('documento');
 
     function validarEtapa1() {
         const ids = ['i-data', 'i-hora', 'i-valor', 'i-nome', 'i-cnpj', 'i-banco', 'i-agencia', 'i-conta'];
