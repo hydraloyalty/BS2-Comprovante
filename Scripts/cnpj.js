@@ -1,21 +1,29 @@
-// JavaScript Document
+// Selecionando o elemento de input do CNPJ/CPF
+const inputDocumento = document.getElementById('i-cnpj');
 
-// Selecionando o elemento de input do CNPJ
-const inputCNPJ = document.getElementById('i-cnpj');
+// Adicionando um evento de input ao campo de entrada de documento
+inputDocumento.addEventListener('input', function() {
+    const documentoValue = inputDocumento.value.replace(/\D/g, ''); // Remover caracteres não numéricos
 
-// Adicionando um evento de input ao campo de entrada de CNPJ
-inputCNPJ.addEventListener('input', function() {
-    const cnpjValue = inputCNPJ.value.replace(/\D/g, ''); // Remover caracteres não numéricos
+    // Configuração de comprimento máximo do input
+    inputDocumento.maxLength = 18;
 
-    // Configuração para CNPJ
-    inputCNPJ.maxLength = 18;
+    let formattedDocumento;
 
-    // Formatação para CNPJ (##.###.###/####-##)
-    let formattedCNPJ = cnpjValue.substring(0, 2);
-    if (cnpjValue.length > 2) formattedCNPJ += '.' + cnpjValue.substring(2, 5);
-    if (cnpjValue.length > 5) formattedCNPJ += '.' + cnpjValue.substring(5, 8);
-    if (cnpjValue.length > 8) formattedCNPJ += '/' + cnpjValue.substring(8, 12);
-    if (cnpjValue.length > 12) formattedCNPJ += '-' + cnpjValue.substring(12, 14);
+    if (documentoValue.length <= 11) {
+        // Formatação para CPF (###.###.###-##)
+        formattedDocumento = documentoValue.substring(0, 3);
+        if (documentoValue.length > 3) formattedDocumento += '.' + documentoValue.substring(3, 6);
+        if (documentoValue.length > 6) formattedDocumento += '.' + documentoValue.substring(6, 9);
+        if (documentoValue.length > 9) formattedDocumento += '-' + documentoValue.substring(9, 11);
+    } else {
+        // Formatação para CNPJ (##.###.###/####-##)
+        formattedDocumento = documentoValue.substring(0, 2);
+        if (documentoValue.length > 2) formattedDocumento += '.' + documentoValue.substring(2, 5);
+        if (documentoValue.length > 5) formattedDocumento += '.' + documentoValue.substring(5, 8);
+        if (documentoValue.length > 8) formattedDocumento += '/' + documentoValue.substring(8, 12);
+        if (documentoValue.length > 12) formattedDocumento += '-' + documentoValue.substring(12, 14);
+    }
 
-    inputCNPJ.value = formattedCNPJ;
+    inputDocumento.value = formattedDocumento;
 });
